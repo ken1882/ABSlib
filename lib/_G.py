@@ -1,0 +1,1 @@
+AppHwnd = 0
