@@ -1,7 +1,7 @@
 import win32api, win32con
 import random
 import _G, const
-from util import wait, uwait, bulk_get_kwargs
+from util import wait, uwait, bulk_get_kwargs, set_cursor_pos
 
 # immediate keystate at current frame
 keystate = [0 for _ in range(0xff)]
@@ -154,7 +154,7 @@ def trigger_key(*args):
 
 def mouse_down(x, y, app_offset):
   if app_offset:
-    offset = const.getAppOffset()
+    offset = const.AppOffset
     x += _G.AppRect[0] + offset[0]
     y += _G.AppRect[1] + offset[1]
   win32api.SetCursorPos((x,y))
@@ -162,18 +162,11 @@ def mouse_down(x, y, app_offset):
 
 def mouse_up(x, y, app_offset):
   if app_offset:
-    offset = const.getAppOffset()
+    offset = const.AppOffset
     x += _G.AppRect[0] + offset[0]
     y += _G.AppRect[1] + offset[1]
   win32api.SetCursorPos((x,y))
   win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
-
-def set_cursor_pos(x, y, app_offset):
-  if app_offset:
-    offset = const.getAppOffset()
-    x += _G.AppRect[0] + offset[0]
-    y += _G.AppRect[1] + offset[1]
-  win32api.SetCursorPos((x,y))
 
 def click(x, y, app_offset=True):
   set_cursor_pos(x, y, app_offset)

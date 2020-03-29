@@ -1,9 +1,6 @@
 # Window Title
 AppName = "BlueStacks"
 
-# Window Rect
-AppRect = [0, 0, 0, 0]
-
 # Base similarity score
 SimlBaseScore = 100
 
@@ -22,3 +19,28 @@ MouseScrollDelta = [3,8]
 
 # Default range for randomized coordinate actions
 DefaultRandRange = 6
+
+# Color value toleration
+ColorTolerateRange = 10
+
+ScreenCacheTimeout = 1000 # ms
+
+OCR_Filename = 'tmp/apptext.png'
+
+OCR_ARGS = '-psm 12 -psm 13'
+OCR_DigitTrans = {
+  'O': '0',
+  'o': '0',
+}
+
+OCR_TimeTrans  = {
+  'O': '0',
+  'o': '0',
+}
+
+OCR_AlphaTrans = {
+  '|': 'l',
+  '§': 's',
+  '5': 's',
+  '0': '0',
+}
